@@ -1,0 +1,60 @@
+Formato de cada resource devuelto por la DBpedia SpotLight (DB_SL_FIELDS)
+
+{'@URI': 'http://dbpedia.org/resource/The_Battle_(1911_film)',
+'@support': '35',
+'@types': 'Wikidata:Q386724,Schema:Movie,Schema:CreativeWork,DBpedia:Work,DBpedia:Wikidata:Q11424,DBpedia:Film',
+'@surfaceForm': 'The Battle',
+'@offset': '0',
+'@similarityScore': '0.6533323117237093',
+'@percentageOfSecondRank': '0.40326530612242917'
+}
+
+
+Formato de la estructura entityData según sus tres indexaciones: 'byUri', 'by'Type' y 'byOffset'
+
+{'byUri': {'http://dbpedia.org/resource/The_Battle_(1911_film)': {DB_SL_FIELDS,
+                                                                  'combinedTypes': [], 'personProperties': [], 'sparqlTypes': [], 'wikicats': [], 'subjects': [], 'rawSparqlTypes': ''
+                                                                  },
+           'http://dbpedia.org/resource/Battle_of_Thermopylae': {DB_SL_FIELDS,
+                                                                 'combinedTypes': [], 'personProperties': [], 'sparqlTypes': [], 'wikicats': [], 'subjects': [], 'rawSparqlTypes': ''
+                                                                 },
+           'http://dbpedia.org/resource/Alliance': {DB_SL_FIELDS,
+                                                    'combinedTypes': [], 'personProperties': [], 'sparqlTypes': [], 'wikicats': [], 'subjects': [], 'rawSparqlTypes': ''
+                                                    },
+           ...
+           },
+           
+ 'byType': {'Person': [
+                        {'@URI': 'http://dbpedia.org/resource/Xerxes_I',
+                         resto de campos de DB_SL_FIELDS de esa entidad,
+                         'combinedTypes': ['Person', 'Monarch', 'Agent'],
+                         'personProperties': ['http://dbpedia.org/ontology/birthDate', 'http://dbpedia.org/ontology/birthPlace', 'http://dbpedia.org/ontology/deathDate',
+                                              'http://dbpedia.org/ontology/deathPlace', 'http://dbpedia.org/ontology/parent', ...,  'http://xmlns.com/foaf/0.1/gender'],
+                         'sparqlTypes': ['Agent', 'Monarch', 'Person'],
+                         'wikicats': ['5th-centuryBCIranianPeople', '5th-centuryBCRulers', 'AchaemenidKings', 'MonarchsOfPersia', ...,'MurderedPersianMonarchs'],
+                         'subjects': ['http://dbpedia.org/resource/Category:5th-century_BC_rulers', 'http://dbpedia.org/resource/Category:Achaemenid_kings',
+                                      'http://dbpedia.org/resource/Category:Battle_of_Salamis', ..., 'http://dbpedia.org/resource/Category:Battle_of_Thermopylae'],
+                         'rawSparqlTypes': 'http://dbpedia.org/class/yago/Wikicat5th-centuryBCIranianPeople;http://dbpedia.org/ontology/Monarch;...
+                                            http://dbpedia.org/ontology/Person;http://dbpedia.org/class/yago/Wikicat5th-centuryBCRulers'
+                         }
+                         ... más entidades de tipo Person
+                        ],
+            'Monarch': ... más tipos
+ },
+ 
+ 'byOffset': {'0': {'@URI': 'http://dbpedia.org/resource/The_Battle_(1911_film)',
+                     resto de campos de DB_SL_FIELDS de esa entidad,
+                    'combinedTypes': [], 'personProperties': [], 'sparqlTypes': [], 'wikicats': [], 'subjects': [], 'rawSparqlTypes': ''
+                   },
+              '14': {'@URI': 'http://dbpedia.org/resource/Battle_of_Thermopylae',
+                     resto de campos de DB_SL_FIELDS de esa entidad,
+                     'combinedTypes': [], 'personProperties': [], 'sparqlTypes': [], 'wikicats': [], 'subjects': [], 'rawSparqlTypes': ''
+                    },
+              '48': {'@URI': 'http://dbpedia.org/resource/Alliance',
+                     resto de campos de DB_SL_FIELDS de esa entidad,
+                     'combinedTypes': [], 'personProperties': [], 'sparqlTypes': [], 'wikicats': [], 'subjects': [], 'rawSparqlTypes': ''
+                    },
+               ... más offsets
+             }
+}
+

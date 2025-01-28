@@ -1,0 +1,76 @@
+query = "select ?uri     ?label
+                (group_concat(distinct ?subject; separator=';') as ?subjects)     (group_concat(distinct ?type; separator=';') as ?types)
+        where {
+                VALUES ?uri {"+ totalUries +"} . ?uri rdfs:label ?label;
+                       rdf:type ?type . ?uri dct:subject ?subject .
+                FILTER(regex(?type,'http://dbpedia.org/ontology|http://dbpedia.org/class/yago')) .
+                FILTER(lang(?label) = 'en')
+        } group by ?label ?uri"
+        
+
+Lo que devuelve requestTypes en el caso de la respuesta (totalUries = una URI)
+
+{ "head":  { "link": [],
+             "vars": ["uri", "label", "subjects", "types"]
+           },
+  "results": { "distinct": false,
+               "ordered": true,
+               "bindings": [
+                              { "uri": { "type":"uri",
+                                         "value": "http://dbpedia.org/resource/Xerxes_I"
+                                       },
+                                "label": { "type": "literal",
+                                           "xml:lang": "en",
+                                           "value": "Xerxes I"
+                                         },
+                                "subjects": { "type": "literal",
+                                              "value": "http://dbpedia.org/resource/Category:465_BC_deaths;http://dbpedia.org/resource/Category:518_BC_births;http://dbpedia.org/resource/Category:5th-century_BC_Iranian_people;http://dbpedia.org/resource/Category:5th-century_BC_crimes;http://dbpedia.org/resource/Category:5th-century_BC_rulers;http://dbpedia.org/resource/Category:Achaemenid_kings;http://dbpedia.org/resource/Category:Battle_of_Salamis;http://dbpedia.org/resource/Category:Battle_of_Thermopylae;http://dbpedia.org/resource/Category:Book_of_Esther;http://dbpedia.org/resource/Category:Monarchs_of_Persia;http://dbpedia.org/resource/Category:Monarchs_of_the_Hebrew_Bible;http://dbpedia.org/resource/Category:Murdered_Persian_monarchs;http://dbpedia.org/resource/Category:Persian_people_of_the_Greco-Persian_Wars;http://dbpedia.org/resource/Category:Pharaohs_of_the_Achaemenid_dynasty_of_Egypt;http://dbpedia.org/resource/Category:Twenty-seventh_Dynasty_of_Egypt"
+                                            },
+                                "types": { "type": "literal",
+                                           "value": "http://dbpedia.org/class/yago/CausalAgent100007347;http://dbpedia.org/class/yago/Communicator109610660;http://dbpedia.org/class/yago/HeadOfState110164747;http://dbpedia.org/class/yago/King110231515;http://dbpedia.org/class/yago/LivingThing100004258;http://dbpedia.org/class/yago/Negotiator110351874;http://dbpedia.org/class/yago/Object100002684;http://dbpedia.org/class/yago/Organism100004475;http://dbpedia.org/class/yago/Person100007846;http://dbpedia.org/class/yago/PhysicalEntity100001930;http://dbpedia.org/class/yago/Representative110522035;http://dbpedia.org/class/yago/Ruler110541229;http://dbpedia.org/class/yago/Sovereign110628644;http://dbpedia.org/class/yago/Whole100003553;http://dbpedia.org/class/yago/Wikicat5th-centuryBCIranianPeople;http://dbpedia.org/class/yago/Wikicat5th-centuryBCRulers;http://dbpedia.org/class/yago/WikicatAchaemenidKings;http://dbpedia.org/class/yago/WikicatMonarchsOfPersia;http://dbpedia.org/class/yago/WikicatMonarchsOfTheHebrewBible;http://dbpedia.org/class/yago/WikicatMurderedPersianMonarchs;http://dbpedia.org/class/yago/WikicatPersianPeopleOfTheGreco-PersianWars;http://dbpedia.org/class/yago/YagoLegalActor;http://dbpedia.org/class/yago/YagoLegalActorGeo;http://dbpedia.org/ontology/Agent;http://dbpedia.org/ontology/Monarch;http://dbpedia.org/ontology/Person"
+                                         }
+                              }
+                           ]
+            }
+}
+
+
+Lo que devuelve requestTypes en el caso del texto (totalUries = varias URIs)
+
+{ "head": { "link": [],
+            "vars": ["uri", "label", "subjects", "types"]
+          },
+  "results": { "distinct": false,
+               "ordered": true,
+               "bindings": [
+                             { "uri": { "type": "uri",
+                                        "value": "http://dbpedia.org/resource/Themistocles"
+                                      },
+                               "label": { "type": "literal",
+                                          "xml:lang": "en",
+                                          "value": "Themistocles"
+                                        },
+                               "subjects": { "type": "literal",
+                                             "value": "http://dbpedia.org/resource/Category:459_BC_deaths;http://dbpedia.org/resource/Category:520s_BC_births;http://dbpedia.org/resource/Category:5th-century_BC_Greek_people;http://dbpedia.org/resource/Category:Achaemenid_satraps_of_Magnesia;http://dbpedia.org/resource/Category:Ancient_Athenian_admirals;http://dbpedia.org/resource/Category:Ancient_Greek_emigrants_to_Persia;http://dbpedia.org/resource/Category:Ancient_Thracian_Greeks;http://dbpedia.org/resource/Category:Battle_of_Artemisium;http://dbpedia.org/resource/Category:Battle_of_Salamis;http://dbpedia.org/resource/Category:Medism;http://dbpedia.org/resource/Category:Ostracized_Athenians;http://dbpedia.org/resource/Category:People_of_the_Greco-Persian_Wars"
+                                           },
+                               "types": { "type": "literal",
+                                          "value": "http://dbpedia.org/class/yago/Admiral109771204;http://dbpedia.org/class/yago/CausalAgent100007347;http://dbpedia.org/class/yago/CommissionedMilitaryOfficer109943239;http://dbpedia.org/class/yago/CommissionedNavalOfficer109943541;http://dbpedia.org/class/yago/CommissionedOfficer109942970;http://dbpedia.org/class/yago/FlagOfficer110094584;http://dbpedia.org/class/yago/General110123844;http://dbpedia.org/class/yago/GeneralOfficer110125786;http://dbpedia.org/class/yago/Leader109623038;http://dbpedia.org/class/yago/LivingThing100004258;http://dbpedia.org/class/yago/MilitaryOfficer110317007;http://dbpedia.org/class/yago/Object100002684;http://dbpedia.org/class/yago/Organism100004475;http://dbpedia.org/class/yago/Person100007846;http://dbpedia.org/class/yago/PhysicalEntity100001930;http://dbpedia.org/class/yago/Politician110450303;http://dbpedia.org/class/yago/Ruler110541229;http://dbpedia.org/class/yago/Serviceman110582746;http://dbpedia.org/class/yago/SkilledWorker110605985;http://dbpedia.org/class/yago/Whole100003553;http://dbpedia.org/class/yago/Wikicat5th-centuryBCGreekPeople;http://dbpedia.org/class/yago/WikicatAncientAthenianAdmirals;http://dbpedia.org/class/yago/WikicatAncientAthenianGenerals;http://dbpedia.org/class/yago/WikicatAncientGreekRulers;http://dbpedia.org/class/yago/WikicatGenerals;http://dbpedia.org/class/yago/WikicatGreekPoliticians;http://dbpedia.org/class/yago/WikicatPeopleFromAthens;http://dbpedia.org/class/yago/WikicatPeopleOfTheGreco-PersianWars;http://dbpedia.org/class/yago/Worker109632518;http://dbpedia.org/class/yago/YagoLegalActor;http://dbpedia.org/class/yago/YagoLegalActorGeo;http://dbpedia.org/ontology/Agent;http://dbpedia.org/ontology/MilitaryPerson;http://dbpedia.org/ontology/Person"
+                                        }
+                             },
+                             { "uri": { "type": "uri",
+                                        "value": "http://dbpedia.org/resource/Invasion"
+                                      }	,
+                               "label": { "type": "literal",
+                                          "xml:lang": "en",
+                                          "value": "Invasion"
+                                        }	,
+                               "subjects": { "type": "literal",
+                                             "value": "http://dbpedia.org/resource/Category:Invasions;http://dbpedia.org/resource/Category:Wars_by_type"
+                                           }	,
+                               "types": { "type": "literal",
+                                          "value": "http://dbpedia.org/ontology/MilitaryConflict"
+                                        }
+                             }
+                          ]
+            }
+}

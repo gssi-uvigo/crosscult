@@ -1,0 +1,93 @@
+query = "select ?uri
+                ?label
+                (group_concat(distinct ?p; separator=';') as ?properties)
+        where {
+                VALUES ?uri {" + totalUries + "} .
+                VALUES ?p {dbo:birthDate dbo:birthPlace dbo:deathPlace dbo:deathDate dbp:birthDate dbp:birthPlace dbp:deathPlace dbp:deathDate dbo:parent dbo:commander foaf:gender} .
+                ?uri rdfs:label ?label; rdf:type ?t; ?p ?v . FILTER(lang(?label) = 'en') .
+                FILTER(regex(?t,'http://dbpedia.org/ontology/Person|http://dbpedia.org/class/yago/Person'))
+        } GROUP BY ?uri ?label"
+
+
+Lo que devuelve requestTypes en el caso de la respuesta (totalUries = una URI)
+
+{'head': {'link': [],
+          'vars': ['uri', 'label', 'properties']}, 
+          'results': {'distinct': False, 'ordered': True,
+                      'bindings': [{
+                                    'uri': {'type': 'uri',
+                                            'value': 'http://dbpedia.org/resource/Xerxes_I'},
+                                    'label': {'type': 'literal', 'xml:lang': 'en',
+                                                'value': 'Xerxes I'},
+                                    'properties': {'type': 'literal',
+                                                    'value': 'http://dbpedia.org/ontology/birthDate;http://dbpedia.org/ontology/birthPlace;http://dbpedia.org/ontology/deathDate;http://dbpedia.org/ontology/deathPlace;http://dbpedia.org/ontology/parent;http://dbpedia.org/property/birthDate;http://dbpedia.org/property/birthPlace;http://dbpedia.org/property/deathDate;http://dbpedia.org/property/deathPlace;http://xmlns.com/foaf/0.1/gender'
+                                                    }}]}}
+
+
+
+Lo que devuelve requestTypes en el caso del texto (totalUries = varias URIs)
+
+{'head': {'link': [],
+          'vars': ['uri', 'label', 'properties']},
+          'results': {'distinct': False, 'ordered': True,
+                      'bindings': [{
+                                    'uri': {'type': 'uri',
+                                            'value': 'http://dbpedia.org/resource/Ephialtes_of_Trachis'
+                                            },
+                                    'label': {'type': 'literal',
+                                              'xml:lang': 'en',
+                                              'value': 'Ephialtes of Trachis'
+                                              },
+                                    'properties': {'type': 'literal',
+                                                   'value': 'http://dbpedia.org/ontology/deathDate;http://dbpedia.org/ontology/deathPlace;http://xmlns.com/foaf/0.1/gender'
+                                                  }
+                                   },
+                                   {
+                                    'uri': {'type': 'uri',
+                                            'value': 'http://dbpedia.org/resource/Darius_I'
+                                            },
+                                    'label': {'type': 'literal',
+                                              'xml:lang': 'en',
+                                              'value': 'Darius I'
+                                             },
+                                    'properties': {'type': 'literal',
+                                                   'value': 'http://dbpedia.org/ontology/birthDate;http://dbpedia.org/ontology/deathDate;http://dbpedia.org/ontology/parent;http://dbpedia.org/property/birthDate;http://dbpedia.org/property/deathDate;http://xmlns.com/foaf/0.1/gender'
+                                                   }
+                                   },
+                                   {'uri': {'type': 'uri',
+                                            'value': 'http://dbpedia.org/resource/Xerxes_I'
+                                           },
+                                    'label': {'type': 'literal',
+                                              'xml:lang': 'en',
+                                              'value': 'Xerxes I'
+                                              },
+                                    'properties': {'type': 'literal',
+                                                   'value': 'http://dbpedia.org/ontology/birthDate;http://dbpedia.org/ontology/birthPlace;http://dbpedia.org/ontology/deathDate;http://dbpedia.org/ontology/deathPlace;http://dbpedia.org/ontology/parent;http://dbpedia.org/property/birthDate;http://dbpedia.org/property/birthPlace;http://dbpedia.org/property/deathDate;http://dbpedia.org/property/deathPlace;http://xmlns.com/foaf/0.1/gender'
+                                                   }
+                                   },
+                                   {'uri': {'type': 'uri',
+                                            'value': 'http://dbpedia.org/resource/Themistocles'
+                                           },
+                                    'label': {'type': 'literal',
+                                              'xml:lang': 'en',
+                                               'value': 'Themistocles'
+                                             },
+                                    'properties': {'type': 'literal',
+                                                   'value': 'http://dbpedia.org/ontology/birthDate;http://dbpedia.org/ontology/birthPlace;http://dbpedia.org/ontology/deathDate;http://dbpedia.org/ontology/deathPlace;http://dbpedia.org/property/birthDate;http://dbpedia.org/property/birthPlace;http://dbpedia.org/property/deathDate;http://dbpedia.org/property/deathPlace;http://xmlns.com/foaf/0.1/gender'
+                                                  }
+                                   },
+                                   {'uri': {'type': 'uri',
+                                            'value': 'http://dbpedia.org/resource/Leonidas_I'
+                                            },
+                                    'label': {'type': 'literal',
+                                              'xml:lang': 'en',
+                                              'value': 'Leonidas I'
+                                              },
+                                    'properties': {'type': 'literal',
+                                                    'value': 'http://dbpedia.org/ontology/birthDate;http://dbpedia.org/ontology/birthPlace;http://dbpedia.org/ontology/deathDate;http://dbpedia.org/ontology/deathPlace;http://dbpedia.org/ontology/parent;http://dbpedia.org/property/birthPlace;http://dbpedia.org/property/deathDate;http://dbpedia.org/property/deathPlace;http://xmlns.com/foaf/0.1/gender'
+                                                  }
+                                    }
+                                   ]
+                    }
+            }
+

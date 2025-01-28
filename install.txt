@@ -1,0 +1,40 @@
+
+
+————————
+# Install what's necessary
+
+- Install Xcode 
+- Install Homebrew: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+- Install python3: brew install python
+pip3 install flask
+pip3 install requests
+pip3 install requests-futures
+pip3 install sklearn
+pip3 install bs4
+pip3 install nltk
+pip3 install spacy
+pip3 install gensim
+pip3 install pycorenlp
+pip3 install html5lib    (si error, pip install --upgrade pip)
+pip3 install python-csv
+pip3 install pytest-shutil
+pip3 install regex
+pip3 install smart_open
+
+- Para descargar nltk stopwords
+python3 -m nltk.downloader stopwords   (para este usuario)
+sudo python3 -m nltk.downloader -d /usr/local/share/nltk_data stopwords  (para todos los usuarios)
+
+
+
+
+Required Downloadsm ??
+—————-------------
+# One of them is enough (you'll need to load the one you downloaded)
+python3 -m spacy download en
+python3 -m spacy download en_core_web_sm
+python3 -m spacy download en_core_web_md
+python3 -m spacy download en_core_web_lg
+python3 -m spacy download en_vectors_web_lg
+
+

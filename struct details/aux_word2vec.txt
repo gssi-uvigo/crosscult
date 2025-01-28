@@ -1,0 +1,55 @@
+Attributos del modelo
+
+['__class__', '__contains__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__',
+'__ignoreds', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__numpys', '__recursive_saveloads', '__reduce__', '__reduce_ex__',
+'__repr__', '__scipys', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_adapt_by_suffix', '_check_input_data_sanity', '_check_training_sanity',
+'_clear_post_train', '_do_train_epoch', '_do_train_job', '_get_job_params', '_get_thread_working_mem', '_job_producer', '_load_specials', '_log_epoch_end',
+'_log_epoch_progress', '_log_progress', '_log_train_end', '_minimize_model', '_raw_word_count', '_save_specials', '_set_train_params', '_smart_save', '_train_epoch',
+'_train_epoch_corpusfile', '_update_job_params', '_worker_loop', '_worker_loop_corpusfile', 'accuracy', 'alpha', 'batch_words', 'build_vocab', 'build_vocab_from_freq',
+'callbacks', 'cbow_mean', 'clear_sims', 'compute_loss', 'corpus_count', 'cum_table', 'delete_temporary_training_data', 'doesnt_match', 'epochs', 'estimate_memory',
+'evaluate_word_pairs', 'get_latest_training_loss', 'hashfxn', 'hs', 'init_sims', 'intersect_word2vec_format', 'iter', 'layer1_size', 'load', 'load_word2vec_format',
+'log_accuracy', 'min_alpha', 'min_alpha_yet_reached', 'min_count', 'model_trimmed_post_training', 'most_similar', 'most_similar_cosmul', 'n_similarity', 'negative',
+'predict_output_word', 'random', 'reset_from', 'running_training_loss', 'sample', 'save', 'save_word2vec_format', 'score', 'sg', 'similar_by_vector', 'similar_by_word',
+'similarity', 'syn0_lockf', 'syn1', 'syn1neg', 'total_train_time', 'train', 'train_count', 'trainables', 'vector_size', 'vocabulary', 'window', 'wmdistance', 'workers', 'wv']
+
+
+Attributos del modelo.wv
+
+['__class__', '__contains__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__',
+'__ignoreds', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__numpys', '__recursive_saveloads', '__reduce__', '__reduce_ex__',
+'__repr__', '__scipys', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_adapt_by_suffix', '_load_specials',
+'_log_evaluate_word_analogies', '_save_specials', '_smart_save', 'accuracy', 'add', 'closer_than', 'cosine_similarities', 'distance', 'distances', 'doesnt_match',
+'evaluate_word_analogies', 'evaluate_word_pairs', 'get_keras_embedding', 'get_vector', 'index2entity', 'index2word', 'init_sims', 'load', 'load_word2vec_format',
+'log_accuracy', 'log_evaluate_word_pairs', 'most_similar', 'most_similar_cosmul', 'most_similar_to_given', 'n_similarity', 'rank', 'relative_cosine_similarity', 'save',
+'save_word2vec_format', 'similar_by_vector', 'similar_by_word', 'similarity', 'similarity_matrix', 'syn0', 'syn0norm', 'vector_size', 'vectors', 'vectors_norm',
+'vocab', 'wmdistance', 'word_vec', 'words_closer_than', 'wv']
+
+** Init
+pmodel.init_sims  --> wmodel.init_sims
+
+
+** /getDistance
+pmodel.inVocab (w)  --> w in wmodel.wv.vocab
+pmodel.distance --> wmodel.wv.distance
+pmodel.similarity  --> wmodel.similarity
+pmodel.similar_by_word  --> wmodel.similar_by_word
+pmodel.predict_output_word  --> wmodel.predict_output_word
+
+
+** /vocabModel
+pmodel.rawVocab.keys   -->    wmodel.wv.vocab.keys()
+
+
+** AlgorithmA2
+
+
+
+
+
+
+
+self.model = KeyedVectors.load(pathModel)
+
+
+
+
